@@ -11,7 +11,7 @@
  CRC design module: crc.sv    
  To run simmulation, script: sv_uvm     
  Command to run simulation: ./sv_uvm tbcrc.sv          
- Simulation result file: final_result.txt     
+ Simulation result file: result_simulation.txt     
  
  For logic synthesis,    
  Synthesis script: synthesis.script & sss  
