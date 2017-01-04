@@ -9,9 +9,10 @@
  Top Module/Testbench: tbcrc.sv      
  CRC interface: crcif.sv     
  CRC design module: crc.sv    
- To run simmulation, script: sv_uvm
- Command to run simulation: ./sv_uvm tbcrc.sv     
+ To run simmulation, script: sv_uvm     
+ Command to run simulation: ./sv_uvm tbcrc.sv          
  Simulation result file: final_result.txt     
+ 
  For logic synthesis,    
  Synthesis script: synthesis.script & sss  
  To do synthesis, run command: ./sss
