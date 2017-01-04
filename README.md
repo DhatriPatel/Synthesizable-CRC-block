@@ -8,9 +8,14 @@
  Programming language: SystemVerilog/Verilog    
  Top Module/Testbench: tbcrc.sv      
  CRC interface: crcif.sv     
- CRC design module: crc.sv     
+ CRC design module: crc.sv    
+ To run simmulation, script: sv_uvm
+ Command to run simulation: ./sv_uvm tbcrc.sv     
  Simulation result file: final_result.txt     
- Synthesis script: synthesis.script     
+ For logic synthesis,    
+ Synthesis script: synthesis.script & sss  
+ To do synthesis, run command: ./sss
+ Synthesis result file: synres.txt    
  
  All done with smile.... :)
  
