@@ -1,0 +1,408 @@
+//
+// This is some simple UVM code for the crc block... It is quite simple
+//
+`protected
+Q]EfI0Pfc4U>dRA1ag>Lg]O;gA(+BX=82=?@L/-L1C(>.</K(MMO.)5^_K54<0&[
+N7IAC:A9aZg,Y6R>2P7XA.XN\U5c8fQ2L:=6PT7[0.<S9>3#bRTcL4b#3cE<_?de
+_,L#C6MKBME#W-]fL_;-f_>MfBG)>U;LN@G-D+U_\f;Z3P9E-f971D?XKC3(faDJ
+fYf(6dTd8A-R3\+8H^\0CGVD^_a]6]+[OPN\G242ON:M8IM+#AC-@2[^gC[\#TDS
++[V+FNEC2(G5U-).XB?bO[,S-JSD_U6Bg#/BB:/UaA]\[GNYMNOF4#4EB6/>R-V?
+IN3Y><6gcY_=3P81.<>8T]23&UO^#X3eQ2EdF_7=H>a3bLF2.M?^J)3a7?A0>?53
+L_I5NE6>;ge=.$
+`endprotected
+
+
+class OOPS;
+
+static task oops(input string sm);
+  `uvm_error("error",sm)
+endtask : oops
+
+
+
+
+endclass : OOPS
+
+//
+// A low level message containing the sequence item to the driver
+//
+
+class crc_seq_item extends uvm_sequence_item;
+`uvm_object_utils(crc_seq_item)
+
+  logic rst;
+  int   delay;
+  logic [31:0] addr,data_in;
+  logic RW;
+  logic [31:0] data_out;
+
+  function new(string name = "crc_seq_item");
+    super.new(name);
+  endfunction
+
+  function string toStr() ;
+    return $sformatf("rst %h RW %h addr %08h din %08h dout %08h",
+        rst,RW,addr,data_in,data_out);
+  endfunction : toStr
+
+endclass : crc_seq_item
+//
+// Sequence model
+//
+
+class crc_seq extends uvm_sequence #(crc_seq_item);
+
+`uvm_object_utils(crc_seq)
+
+// crc sequence_item
+crc_seq_item req,req2;
+
+// Controls the number of request sequence items sent
+rand int no_reqs = 1000;
+
+function new(string name = "crc_seq");
+  super.new(name);
+endfunction
+
+`protected
+KIFC,#3gF;fGQ,MKUO(5>#Bfd<GIQZbU#PFaO\MbBOe?2KU<_9S@/)4JDK[KUXRe
+704;38S/5Z,KXJ28YVHZHP^=VP-JUdaPE=BAXe)QEJJGF<U[@ZT;W0(f56QdY9(H
+,:++3O,XKM,R1/NK:I^KKaPQg@OH;#Ig1f)H[J_7C&)6</3[H8>X&^X[Zb0@WZ@H
+N?fYBB/,0[IR]g&6S\TAb,AVfSWPNfR,)C1I9bfV;E&9\WRC/7943N/\^3;d<#O-
+fK,4<J_dCGd19N#,Ybc([,MAA,#4UgP/ZS<AQ<<D22[^GgR><(45INC7KK)Z&T.@
+B3)(DT1AFLML-9O2;@U]d6E+GaY4^#/68#NXRSMA=]<DX\4\JMHf<f&;RafMWZ5H
+WD2Ca?,/g7]^7=U48TSfTa<P(^Bd;\DaO^+OEQa[7NTf>S#0f]8357BV7RI&KZF;
+E.9F:a=TX2<ePF54[))^e?@.RCJJ==5;]ILf)6B\GV<>6QUc&H+\3_XNe;GO8bRH
+?#YJKG;gMNgfGS)N5E],&c#O0N+BGNF51]^.(KL.g4R[(1/GD(L;4)D:/3\CO^V>
+77J4^NZa#RD7RWRQBH4gT)1PcGG.I+P=B/dHgXa;(S\-cUdcSE(eNL]NGA1C]AI^
+cQ/+,XVO4fMDSdgQV2/3,/@S^FceYSSg-_3ZX=^[?2)RDcQHZO0O,_1OKS)L&bH#
+_G8Y<cB-0QBWSE8Y<GIL)AXCeYTJ^6UTaCU:XR96e2N&TRW,VEcDa8+PEQRRJ^2a
+R]X5(C]LGHDF]6.Lfb.fGeC0A151/LXc,eAP.>?[7RNgQ8DZL(+1Y[dUA;268HI.
++BWW7+>=C?LE>+D2#8H)V2PTBbI49Z)\74+)TLKX&Uc>OgLWfIAVR\Fd3E\[E5eI
+J,LAJ,&AWH_9?5JIf;[7KE=gS]a\S4T+0+caNNG?)7N;@OSW;L/1YO5V0?D]ZP7b
+,8VbXA&N;E?acgZ0Q)Ed^WTDRP_U&+#dF-K+N9?^b_S@[^>bT<e.0X0BV4c/BH5/
+fL^TJ<C&3P;FX0?31Ma<L41EKRYXVf)SIYcWQX<D<9e5\]P^MW5.<6^(ce=F9T^X
+,ORe-&OHBS\gP3(KRdDU;CX-4Q]ge5D\JOL-Q,=[NM0T(L\DJY^0URTS_4=)CYG&
+MEZD8FDH:Ge<BD5I-NaVLUUEZ>?e<CPU\>IQM<b3E.+:V,XLLSbJ])9ZD]9\UR1J
+XXOGII5;)He=,-=OB]VQJHO1SW=1f:O>/>b]^]2b+EaBecBd=&d)0bGV@SKf:Bb7
+4\E4gVFN4XO1A,gYLD<;)^&&80.XcN(MgIg<aH,b,=2D2:+EgQ0Ta\Xf4L>RaYKR
+\1BZ^Y8:a<Dc:Z(,Y1?0c_0+QL9UPcOI+_,M.63f41\85;=BF&,81X9LB]I?=WA5
+JUYX],>#8HF+NNWA4J?R]Te^<F4-,(-Uc.Y_L=X>J>E/8CO1V.@JcTXKZ_#ZI=.K
+KbTcK&8_(5D7_?@N.K@.d@H1HS2HH@:PW:Kd-U7TD64)H-,TH@>NeH#8S&I.;17]
+]a::Y:,_g<SIYC51A(71T9<U+WPY&8(85CBc+R_@=)?.QC#O@^cW5c#8N$
+`endprotected
+
+
+task body;
+  string six;
+  int ecnt=10;
+  begin 
+    req = crc_seq_item::type_id::create("req");
+    req2 = crc_seq_item::type_id::create("req2");
+    sendreset;
+    read3;
+    repeat(no_reqs) begin
+      ecnt=ecnt-1;
+      setup((ecnt > 0)?1:$urandom_range(0,1),(ecnt > 0)?1:0);
+      repeat(700) begin
+        wreg(addr_data,$random);
+        if($urandom_range(0,15)>10) begin
+          rreg(addr_data,$urandom_range(1,3));
+        end else if($urandom_range(0,31)>30) begin
+          read3;
+        end else if($urandom_range(0,256)>255) begin
+          sendreset;
+        end
+      end
+    end
+    rreg(addr_data,$urandom_range(1,4));
+  end
+endtask: body
+
+endclass: crc_seq
+
+//
+// This is the driver for now...
+//
+
+class crc_driver extends uvm_driver #(crc_seq_item);
+
+`uvm_component_utils(crc_driver)
+
+crc_seq_item req;
+
+virtual crc_if crc;
+
+function new(string name = "crc_driver", uvm_component parent = null);
+  super.new(name, parent);
+endfunction
+
+function void connect_phase(uvm_phase phase);
+      if (!uvm_config_db #(virtual crc_if)::get(null, "uvm_test_top",
+        "crc_if", this.crc)) begin
+          `uvm_error("connect", "crc_if not found")
+         end 
+endfunction: connect_phase;
+
+task run_phase(uvm_phase phase);
+  crc.Sel <= 0;
+  fork
+  forever
+    begin
+      seq_item_port.get_next_item(req); // Gets the sequence_item
+      if(req.rst) begin
+        crc.rst <= 1;
+        crc.Sel <= 0;
+        repeat(10) @(crc.cb);
+        #2;
+        crc.rst <= 0;
+      end else begin
+        crc.Sel <= 0;
+        crc.addr <= $random;
+        crc.data_wr <= $random;
+        repeat(req.delay) @(crc.cb) #1;
+        crc.Sel <= 1;
+        crc.addr <= req.addr;
+        crc.data_wr <= req.data_in;
+        crc.RW <= req.RW;
+        @(crc.cb);
+        #1
+        crc.Sel <= 0;
+      end
+      seq_item_port.item_done();
+    end
+  join_none
+endtask: run_phase
+
+endclass: crc_driver
+
+
+
+class crc_seqr extends uvm_sequencer #(crc_seq_item);
+  `uvm_object_utils(crc_seqr)
+  
+  function new(string name="crc_seqr");
+    super.new(name);
+  endfunction : new
+
+endclass : crc_seqr
+
+
+`protected
++1S;cJX_HZR\&\5ANU[@_&5\bIVd0GV1S)9cML)M2IF)R[99b]0=-)Q#9F?SF]@_
+,KbaQPdNH^M.Z[SB?JM[X@PN8\USM<CT-SFNb;OMT=R:3Y><Vf8]8Ba3L_Q,>6QN
+cS+^b5TUJ>+/#dUa0U7&^If+;VVHe-YET.8HU/T0Sg@#\[:.4afZ7\@bBT<DLAX<
+^=NYGbK/9c6@<?g\&QLE0WNUQ2S&T]^.e2OU\1)Ff?1KW+U10D:41OQ[MZ48V+&A
+d4P_A450YE9&TUedeA(3=M5fAT:@-ddA,Q^JV(REK^3_<8H8KT)Qd<>.X/+UbGdX
+UfWg1KV1.LZLd24&dg7()+c=3,.1O^&a/WZ/)JQS<3?UW&F[N7,A:UgIaaLB3DT.
+=2\OT7U1M25UT3D_I@3bId432K)IJ+.]NJEPa+cNKCO;SP?/J11>FE?H5QD46g8_
+;X[@J17PTFQ7NbfSad[<b).bef;4)D4-_9<WVPXb@_D;48?RT2B2c1,LY?Y?=9b)
+/DXF&N1cP#cRV5b6QdG2X.;SQ0PEKC-/_+WUP9g1,CFe[_FV<_>5PdT4TU&2aAd/
+U\#3S^B9If9CXKNH\;N54I0XI0Z87J?K+FVTLcHDXTT@=B3Z\aN)P\M3E?\31=[S
+-14D[4SOY->3E.K;[20a_g5a:W<cX1V(E[6^Q8GL,?P(M@D.dTHg[MZ6RfYbX>=(
+Tcc?>KA,XXe<bL_E-R4GPS);9RCB-)6T()dJ_K6LFQ/EF)GE>Wa[(3NI0[/:T.]B
+_64X@EQR^VG:]]CG-NaQcM?K_Z3WYT-g1)cg4PVGVN_#WC.7fKE82>c\=&ALg=,A
+G;2#-;LFW.^f,c,:CaLMaTP/cdA:6.BgF91RB@fX\W.QA\?G-V5=VH?)eTK0;8ZP
+Z4<TDMMg0PJ--(GCQ[+H].&NKa86@9X23M[fUJA2Cc\FO>#G2S7T.V;J-#g#F<S.
+6Ug7MWXef@H^H^M=Z=B:Rd,7\5Y_f-9G\E_b/8]O.D]2BS9N_3BL_]\d&@>6NU&2
+)\(B2#SZ>@YL>6@PeKEH_g12TUTE-_g5Z2c-<,DQ\2=^1@.L0)d.=gQ]H/FFLXcJ
+N=;be_J^SJ8FWBPg4A:ZCY(8\TPf+_JgQf^5FXbb.<:Y>C8EXGeQG9_Z[F)HbF9D
+cTAS>1QL#80=NZ)N/#F1V-,.(S3LZd#2]OeYY4^gPE2;VR_dOT@K>RLY0@Y#VQJI
+XYbcH@c1Ie3.ONHDc4OAd?a_RX^=_9&T^f^[J?E,ESN-ZZ_4G@0F#>N5=F.V:QAY
+VTE[>8NOJC[]3ff-)=-AIBD:V/RG]>U-cFF(Q:#eEUYd?H@DO:XE&>T42OWb/SG9
+2-84(PQI]9e<JQNGI4>H1#MbDK>S\N9b3^QZ<><b5KTG5WUIKcefUP=M8CDe:J/C
+N9/9L;PY)?YI^XC>IMGGWOIRFO?fL\D9g]PJ+(ZA1_,)27>7RP67]:JP^;W8J>T=
+5aC;d_#OW+NGC4.fgETC=3(8QJV9b86TB?bH:7LLfO>UY-XF6O\HYAYg.^4:@(N8
+)(NYD1JCb21A=)WRa)@XNHWB:7g6((N#_Z_>J\&&AVTgY(Va]3/-P<5Y1:FDU\2J
+L?/^X/6U?aYY<W7<#UE;21aXHeDXZ<6^?OG6[8=T9RS5JQ^)LJ,Y7+,&P9PV-J&2
+(.PK<8d_TIP6-[TY)KLE+Y\8SX_4]@gS:(UN+?5[AbZdd2(K/(0IG_aHO6g_RJZb
+)?<]//VK-R6@7(P7IU<4+C-FN6f-W5-_aaeA@-Q1DP@6-K,A2g3CVS]dE>P#YDS:
+8:be1=W.)^(fM,F,KIJV96>7_+3)5L>[E+&>32N9+KA2_cK-H]S?[7:FC^2V>/bR
+FLBMc(PF#aL+F2)e<2:\-UTdJAR>O6]BX0HA?&g<KBW(E_^51M)PU(8H-fLP.^QE
+.^X\W>4dCN9X[.W?/4VbLXZA:-b^IN\cMBZf(&e9ID7\(FBIDS8A3fE(6@TAOgL#
+-V7HD?06&8>LOgJC])0LUe7Zf2NCaf;1EK4O49)=^2^IRNJb)#0g[DYK06TEMA&>
+/C?d2,R@D\I(.G:VC.BQ2_a10dg\SH8QScM8Y9B(:dP)L<13/f@&=9O=SeAgaAe-
+O<gQH)R69/99W[>)M(:4>OHQJYg8]:<AeRYFaFI74/U,bQ/[3]fa6KeDY:He;P+=
+X6VW&6Q>26ZN>Q)4M8^HPEMW;gH7E:/HJF#6VV\O]K-B23PWXTT)Q>?N\20c\L.5
+JR-RbV=DWBe.IHE^NaCG#K4R_)R20EbUB.)3Bc:4CU,<@bPd_BL_ACDg]WSP:Nab
+TU4bE25R\NAgG(PQ.V_V(b.@]M9U_P/11g983=b;_/4gGO6Q)6U5ac^>UXLgDN:d
+B7R\B)MHd-N7FF-VNOZ[.)6A=b4=bAAR0e[;)d6J]Y&,Z68MBe)E?\7?\\:/RLbI
+=B0\cb<_6Gb?\gV:a7\M-C7PW8AK2[:UO.b]S]Y9:#RJeP9+@B\X-=J,[J=NV05/
+?Z];03c?ZH+GBR-RRS)=U]E3+JMED@I9#[&Ef2RWfVB(YLDW,@IWX0SZ1CAgK0E6
+2W;L2_EO(A(_-Me<IGDC6[\Xe>ONHZLeFI)1;^WI7P1;3>)g[4QQ#5Z+KVWVNHJX
+JE#_N(4)1Z=D>;c0Jd7&YW<NLBff/V9Bb/GdZ(NUAYQ.<fQDS,HUPcA0#]#^IJbc
+=51MRF(_[VNCDT^Bc:/Z4f6Hc&^c^/a]YRNg&YI66gT:>XX-O+E]T<_0TOCXa9V6
+SaI&A92L@+X-@YbUDIcCT[8C?UUJ-TXXd\)9]E/D(<Z-4bJL^=S5.EQf5+EQF=;W
+dK1OGB^3^beTP;(=)4&e.P9CM\;JBDY(^LG&[aae;N>SXQ1cAK.eR64gg<AND_7X
+gdU:FOEd/Me-RT>E2ZEP5360Q8I5bF4D,M#e^([PPD@WZcRPb]2d\R02PEAH_-Ze
+\?35E(<dM=5##aI4L5b&E@)=fK\&DAF]^S5aH>U)fQ\^TN+b&J7R0BRY)dLKWNCf
+)1/U36eI0)[\:(aDLUF-/a?O1IHM279F3&ERNC=d7AL+5Je1D;-NW:CC@]#3(_/\
+V=+TGXA>_f9g)[H9)1dXBe5A<=cQ<EHBW4=XV1;R_UT?>-)3;D]XfRZZ3bW\.e)F
+6N9J^)1-\d2;=\M<7K#E0?;O04\X^XKa?8]AS9ZT8eX5W3>&\E:dR;GIX]3Ra#J[
+=FJN_N+.c[CHLUSROT.@g9_&W=A4SD?>U#e-[].1\/J;8;F+3=g._f&KY/5efEFX
+-\==J#WaZP8]>GRU5UX7MdZ-GcT=,F+L^\=bUGYV:b1./)c6M_?YO85KE&bBZH]M
+g]_-R^0#F[]BH79;HUY9OB81]e/)YLeW>S5YRW2fVa]@/QN&Z8_7?P83?#eQ@@/8
+M57gP096GE-,0A11[-Va1P98GG4.7U^IaUMY88K9?=O2S-OR>_D=;^L;H;_/6_.6
+1YbC,9c0M;b0XbdFG^F-JTd3fL9==4.&5D2B\8VHW0?;YIZS]NU>\3GLR:2DI]99
+ZNFJO&^+62Ke5)GC=<fPYNN)=3=:J:6C&6Y[f24C,dL)NY)IH&NJ=Z^7RNQ.(@Cc
+GHF6Q7CFe=Yd/B:C5caY[;ZG2HO<D:KBPMS3CP0Q+-K^?X>F3FMJCW=?1@0=e.]@
+gKb_TJ(SP26P@:T3ZNIY0PHFJ29JH9WJL)T;XK/1J]PSa4Be[01G<1a9e+1=:+g?
+O83#g3fG2(O?K^bJS]H1V_BaQ.Fd1M5^&6ZP/MeM4ME[?=]&).(_\[/INI]CW(1P
+=\<bf8SOfK06.b?X2<X9&)7[<ZHZJ_b4U99#5[^)=:=:=1_B3=fSYO.ZW(OJQQVM
+K6/Ra,X^:7S)ZMKa+#]d3R]3/B/5N6,d-43#_9C97S]0(gg.POV^M05<Cf#UKW7D
+T7)AAcZ0FaW&a7R][(5&\3e].R8H38BWD@=eB]F[S4Q?67B?g:5WLMG]U>ea:40c
++3:.8;gR?R,UY[9c>GJ471P1CF.aHPeNEDe2fN2@AO\XZU:2^<XWTVTR3+e]DQa<
+cF_M)f:d)c1G9Z3YV&.&847WY[>++U9aDQK<F1g>]^b6PW-_::7dL_e-<D/,d1XK
+g49\P>MI4Y.OJ55JA4V8@LXMOVE0T-.(JF2836gV6#4KSTENR&0PPc#U;dFW8JL2
+LHLPdW@b<8CF7gc93cMYH(.6U&Rc<8_cU??c3/_/>M-Y?3?YDDS@IX.H?OWI&1V2
+U-T-S?SgbQZ7F&87(?dKH\YGe2E7=IfEA@O)LUPQX@3^0gQ^,,:aV__&2_gYX+Db
+cJ,QEL\Jb\F\>06&fVH]V&Ye7\.1g@EATe4RYX8]JC1G(e9eFQ?\f^aAJU7[-eFd
+B+W#K+]2KC>Je/&4=BY+H5]YAWV>?L?DS).USUTbSMgGgU=EB];FTS2U+?3cRaO8
+&CN8NW0=F00)2:I[^7#4&8\(bEUM539aZ;EP,28YH;McL3)aJ[/Yb@4ReI&;3][C
+YG4c;R-81g/g:SS+>S]B019_D0A5bNH0W2?:YS-U[22N>7OR8cfcfQbZcFTEeTYE
+_(/&A]A2V&J^SV&P7)(&Kacf8J-L=([Qe?Z#bJP#ZU?9e)=OZ4fg533L1f>QVVJa
+,2RGTR2K.TCUS@MCRIFfe:.Xe^OK>,f9V354NBN6Y#&,dJ:)NLXU3RTPffOSKgeO
+0JLH_6\VZcO-&1?^H=@[K4<;-H.S<YODLS?L#5:+#E&fKS\].gXM5&49Ia0F:9XG
+:a?GFC&18#DMfYg8360PW5V6CR<1NV:HD,DC6EKU98Y)-96(f<T053E9YX-HOgU(
+X5\2VNFB3]+,C-9&Q6T/&bd_ZDVL0^=QCUS3:\)0DG.)@.dZ=:(8^PMK(fJ^b6,7
+Sd0=)f<PX\,gNZ4L_QZ\R=HaULER0<FgRgg@QC56bJe/IeT<Z7Bf<+9UVYI:>^^Z
+($
+`endprotected
+
+
+
+//
+// Our monitor
+//
+class crc_monitor extends uvm_monitor;
+
+`uvm_component_utils(crc_monitor)
+
+uvm_analysis_port #(crc_seq_item) afx;
+crc_seq_item req;
+
+virtual crc_if ann;
+
+function new(string name = "crc_monitor", uvm_component parent = null);
+  super.new(name, parent);
+endfunction
+
+function void build_phase(uvm_phase phase);
+  begin
+   afx = new("afx",this);
+  end
+endfunction : build_phase
+
+function void connect_phase(uvm_phase phase);
+      if (!uvm_config_db #(virtual crc_if)::get(null, "uvm_test_top",
+        "crc_if", this.ann)) begin
+          `uvm_error("connect", "crc_if not found")
+         end 
+endfunction: connect_phase;
+
+task run_phase(uvm_phase phase);
+	begin
+ 	  fork 
+            forever begin
+ 		@(posedge(ann.clk));
+		if(ann.Sel || ann.rst) begin
+		  req = new();
+		  req.rst=ann.rst;
+                  req.RW=ann.RW;
+                  req.data_in=ann.data_wr;
+                  req.data_out=ann.data_rd;
+                  req.addr=ann.addr;
+		  afx.write(req);
+		end
+	    end
+	  join_none
+	end
+endtask : run_phase
+
+endclass : crc_monitor
+
+
+//
+// The agent. Things happen here to hook things up
+//
+class agent1 extends uvm_agent;
+`uvm_component_utils(agent1)  
+  crc_driver driver1;
+  crc_seq test_seq;
+  crc_seqr seqr;
+  crc_monitor mon1;
+  crc_scoreboard sb1;
+
+  function void build_phase(uvm_phase phase);
+   begin
+    super.build_phase(phase);
+    test_seq = crc_seq::type_id::create("test_seq",this);
+    seqr = crc_seqr::type_id::create("seqr",this);
+    driver1 = crc_driver::type_id::create("crc_driver",this);
+    mon1 = crc_monitor::type_id::create("crc_monitor",this);
+    sb1 = crc_scoreboard::type_id::create("crc_scoreboard",this);
+   end
+   endfunction: build_phase;
+
+
+  function void connect_phase(uvm_phase phase);
+    driver1.seq_item_port.connect(seqr.seq_item_export);
+    mon1.afx.connect(sb1.uaf.analysis_export);
+  endfunction: connect_phase;
+  task run_phase(uvm_phase phase);
+    phase.raise_objection(this, "start of test");
+    test_seq.start(seqr);
+    phase.drop_objection(this, "end of test");
+  endtask: run_phase;
+
+  function new(string name = "agent1", uvm_component parent = null);
+    super.new(name,parent);
+  endfunction
+
+  
+endclass: agent1
+
+//
+// The environment
+//
+
+class env1 extends uvm_env;
+  agent1 agnt;
+  `uvm_component_utils_begin(env1)
+    `uvm_field_object(agnt,UVM_ALL_ON)  
+  `uvm_component_utils_end
+  
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+    agnt = agent1::type_id::create("agnt",this); 
+  endfunction: build_phase;
+  
+  function void connect_phase(uvm_phase phase);
+    super.connect_phase(phase);
+  endfunction: connect_phase;
+  
+  function new(string name="env1", uvm_component parent=null);
+    super.new(name,parent);
+  endfunction: new;
+endclass : env1
+
+// Test instantiates, builds and connects the driver and the sequencer
+// then runs the sequence
+//
+class crc_test extends uvm_test;
+
+
+env1 environ;
+`uvm_component_utils_begin(crc_test)
+  `uvm_field_object(environ,UVM_ALL_ON)
+`uvm_component_utils_end
+function new(string name = "crc_test", uvm_component parent = null);
+  super.new(name, parent);
+endfunction
+
+function void build_phase(uvm_phase phase);
+  environ = env1::type_id::create("env1",this);
+endfunction: build_phase
+
+
+endclass: crc_test
