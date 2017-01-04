@@ -15,7 +15,7 @@
  
  For logic synthesis,    
  Synthesis script: synthesis.script & sss  
- To do synthesis, run command: ./sss
+ To do synthesis, run command: ./sss      
  Synthesis result file: synres.txt    
  
  All done with smile.... :)
